@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>거듭제곱근 문제 풀이 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+        .latex {
+            font-family: "Times New Roman", serif;
+            font-size: 1.1em;
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="p-4 border-b bg-gray-50 no-print">
+            <a href="../index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold">
+                &larr; 전체 목록으로 돌아가기
+            </a>
+        </div>
+        <header class="bg-blue-600 text-white p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">🔍 거듭제곱근 개수 문제 완전 정복</h1>
+            <p class="mt-2 text-blue-100">출제자의 의도를 파악하여 최적의 경로로 문제 해결하기</p>
+        </header>
+
+        <div class="p-6 sm:p-8 border-b">
+            <h2 class="text-xl font-bold text-center text-gray-800 mb-4">지수와 로그 1번 문제</h2>
+            <div class="flex justify-center mb-6">
+                <img src="../images/graphic;%2025008_0027.png" 
+                     alt="거듭제곱근 개수 문제 이미지" 
+                     class="w-full max-w-2xl mx-auto rounded-lg shadow-md border-2 border-gray-200">
+            </div>
+        </div>
+
+        <main class="p-6 sm:p-8">
+            <!-- 문제 정의 -->
+            <div class="mb-8 p-4 border-l-4 border-blue-500 bg-blue-50 rounded-r-lg print-avoid-break">
+                <h2 class="text-xl font-bold text-blue-800">문제의 핵심 정의</h2>
+                <p class="mt-2 text-gray-700">2 이상의 자연수 <span class="latex">n</span>에 대하여 실수 <span class="latex">a</span>의 <span class="latex">n</span>제곱근 중 실수인 것의 개수를 <span class="latex font-bold">f<sub>n</sub>(a)</span>라 하자.</p>
+            </div>
+
+            <!-- Step 1: 목표 설정 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-amber-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7.C14 5 16.09 5.777 17.657 7.343A8 8 0 0118 18c.333.667.667 1.333 1 2h-2.343A8 8 0 0117.657 18.657z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-amber-700">Step 1: 목표 설정 - 최댓값 찾기</h3>
+                    <p class="text-gray-600">주어진 식 <span class="latex font-bold text-gray-800">f<sub>n</sub>(a<sup>n+1</sup>) + f<sub>n</sub>(f<sub>n+1</sub>(a))</span>의 값이 최대일 때를 찾아야 합니다.</p>
+                    <p class="mt-2 p-3 bg-amber-50 rounded-lg text-amber-900"><span class="font-bold">핵심 아이디어:</span> <span class="latex">f<sub>n</sub>(a)</span>의 값은 0, 1, 2만 가능하므로, 최댓값은 <span class="latex">2 + 2 = 4</span>가 될 때입니다.</p>
+                </div>
+            </div>
+
+            <!-- Step 2: 조건 분석 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-teal-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-teal-700">Step 2: 조건 분석 - 언제 2가 될까?</h3>
+                    <p class="text-gray-600"><span class="latex font-bold text-gray-800">f<sub>n</sub>(x) = 2</span>가 되기 위한 조건을 떠올립니다.</p>
+                    <div class="mt-2 p-3 bg-teal-50 rounded-lg text-teal-900 border border-teal-200">
+                        <p class="font-bold">✔️ 조건: <span class="latex">n</span>은 <span class="font-bold text-red-600">짝수</span>, <span class="latex">x</span>는 <span class="font-bold text-red-600">양수</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: 핵심 단서 추론 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-indigo-500 text-white rounded-full flex items-center justify-center mr-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-indigo-700">Step 3: 핵심 단서 추론</h3>
+                    <p class="text-gray-600">최댓값 조건(<span class="latex">f=2</span>)을 각 항에 적용하여 <span class="latex">n</span>과 <span class="latex">a</span>의 조건을 구합니다.</p>
+                    <ul class="mt-2 space-y-3">
+                        <li class="p-3 bg-indigo-50 rounded-lg">
+                            <p class="font-semibold text-indigo-800">1️⃣ 첫 번째 항: <span class="latex">f<sub>n</sub>(a<sup>n+1</sup>) = 2</span></p>
+                            <p class="ml-4 text-gray-700">→ <span class="latex">n</span>은 <span class="font-bold text-red-500">짝수</span>이고, <span class="latex">a<sup>n+1</sup> > 0</span> 이어야 합니다.</p>
+                            <p class="ml-4 text-gray-700">→ <span class="latex">n</span>이 짝수이므로 <span class="latex">n+1</span>은 홀수. 따라서 <span class="latex">a > 0</span> 이어야 합니다.</p>
+                        </li>
+                        <li class="p-3 bg-indigo-50 rounded-lg">
+                            <p class="font-semibold text-indigo-800">2️⃣ 두 번째 항: <span class="latex">f<sub>n</sub>(f<sub>n+1</sub>(a)) = 2</span></p>
+                            <p class="ml-4 text-gray-700">→ 괄호 안부터 계산: <span class="latex">n+1</span>은 홀수, <span class="latex">a > 0</span>이므로 <span class="latex font-bold">f<sub>n+1</sub>(a) = 1</span> 입니다.</p>
+                            <p class="ml-4 text-gray-700">→ 즉, <span class="latex">f<sub>n</sub>(1) = 2</span>. <span class="latex">n</span>은 짝수, 1은 양수이므로 조건에 부합합니다.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Step 4: 최종 조건 확정 -->
+            <div class="p-4 my-8 bg-green-100 border-2 border-dashed border-green-400 rounded-lg text-center print-avoid-break">
+                <h3 class="text-xl font-bold text-green-800">최종 조건 확정!</h3>
+                <p class="mt-2 text-lg text-green-700">최댓값을 가질 조건은 <span class="font-bold text-red-600 latex">n</span>은 짝수, <span class="font-bold text-red-600 latex">a > 0</span> 입니다.</p>
+            </div>
+
+            <!-- Step 5: 문제 풀이 -->
+            <div class="flex items-start print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-rose-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-rose-700">Step 5: 최종 답 구하기</h3>
+                    <p class="text-gray-600">확정된 조건(<span class="latex">n</span>: 짝수, <span class="latex">a > 0</span>)을 사용하여 아래 식의 값을 계산합니다.</p>
+                    <p class="my-3 p-4 bg-gray-100 rounded-lg text-center text-xl font-bold text-gray-800 tracking-wider"><span class="latex">f<sub>n</sub>(-a) + f<sub>n+1</sub>(a) + f<sub>n+2</sub>(|a|-a)</span></p>
+                    <div class="space-y-2">
+                        <p>• <span class="latex">f<sub>n</sub>(-a)</span>: <span class="latex">n</span>은 짝수, <span class="latex">-a</span>는 음수 → <span class="font-bold text-2xl text-rose-600">0</span></p>
+                        <p>• <span class="latex">f<sub>n+1</sub>(a)</span>: <span class="latex">n+1</span>은 홀수, <span class="latex">a</span>는 양수 → <span class="font-bold text-2xl text-rose-600">1</span></p>
+                        <p>• <span class="latex">f<sub>n+2</sub>(|a|-a)</span>: <span class="latex">a>0</span>이므로 <span class="latex">|a|-a=0</span>. 즉 <span class="latex">f<sub>n+2</sub>(0)</span> → <span class="font-bold text-2xl text-rose-600">1</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="bg-gray-800 text-white p-6 sm:p-8 mt-8">
+            <div class="text-center">
+                <p class="text-2xl sm:text-3xl font-bold">최종 정답: <span class="text-yellow-300">0 + 1 + 1 = 2</span></p>
+                <p class="mt-2 text-gray-300">복잡한 경우의 수를 나누는 대신, 문제의 핵심 조건을 먼저 찾아 해결했습니다!</p>
+                <p class="mt-4 text-xs text-gray-400">Copyright 학습코치필 2025</p>
+            </div>
+        </footer>
+    </div>
+    <div class="text-center mt-4 text-gray-500 text-sm no-print">
+        <p>A4 인쇄에 최적화되었습니다.</p>
+    </div>
+</body>
+</html>
+
+
+
