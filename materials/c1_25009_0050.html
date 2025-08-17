@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 그래프와 불연속성 문제 풀이 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="p-4 border-b bg-gray-50 no-print">
+            <a href="../index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold">
+                &larr; 전체 목록으로 돌아가기
+            </a>
+        </div>
+        <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">📊 함수 그래프와 불연속성 문제 풀이 전략</h1>
+            <p class="mt-2 text-indigo-100">절댓값 함수 그래프를 이용한 체계적인 분석 과정</p>
+        </header>
+
+        <div class="p-6 sm:p-8 border-b">
+            <h2 class="text-xl font-bold text-center text-gray-800 mb-4">함수의 연속 2번 문제</h2>
+            <div class="flex justify-center mb-6 bg-gray-50 p-4 rounded-lg">
+                <img src="../images/graphic;%2025009_0050.png" 
+                     alt="함수의 극한과 연속 심화 문제" 
+                     class="w-full max-w-3xl mx-auto rounded-lg shadow-md border-2 border-gray-200">
+            </div>
+        </div>
+
+        <main class="p-6 sm:p-8">
+            <!-- Step 1: 전략 수립 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-blue-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V7.618a1 1 0 01.553-.894L9 4m0 16v-8m0 8h12l-5.447-2.724A1 1 0 0015 16.382V7.618a1 1 0 00-.553-.894L9 4m0 16V4m0 0L3 7m6-3l6 3" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-blue-700">Step 1: 전략 수립 - 그래프 해석</h3>
+                    <p class="text-gray-600">방정식 \(|f(x)|=t\)의 실근의 개수인 \(g(t)\)는 \(y=|f(x)|\) 그래프와 수평선 \(y=t\)의 교점 개수를 의미합니다. \(g(t)\)가 불연속이 되는 지점은 교점의 개수가 급격하게 변하는 순간입니다.</p>
+                    <div class="mt-3 p-4 bg-blue-50 rounded-lg border border-blue-200 space-y-3">
+                        <p>• <strong class="text-gray-800">핵심 아이디어:</strong> \(g(t)\)의 불연속점은 \(y=|f(x)|\) 그래프의 '특이점'에서 발생합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: 불연속점 분석 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-teal-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-teal-700">Step 2: 불연속점 분석</h3>
+                    <p class="text-gray-600">이차함수 \(f(x)\)를 접어 올린 \(y=|f(x)|\) 그래프에서 교점 개수가 변하는 순간은 두 번 발생합니다.</p>
+                    <div class="mt-3 p-4 bg-teal-50 rounded-lg border border-teal-200 space-y-3">
+                        <p>1. <strong class="text-gray-800">\(t=0\) 일 때:</strong> \(y=0\) (x축)과 접할 때. 교점 개수가 2개에서 3개 또는 4개로 변할 수 있습니다.</p>
+                        <p>2. <strong class="text-gray-800">\(t=\)극댓값 일 때:</strong> 접어 올린 부분의 꼭짓점(극댓값)을 지날 때. 교점 개수가 4개에서 2개로 변합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: 함수 최솟값 계산 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-orange-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-orange-700">Step 3: 함수 최솟값과 극댓값 찾기</h3>
+                    <p class="text-gray-600">원래 함수 \(f(x)\)의 최솟값을 구하여 \(|f(x)|\)의 극댓값을 찾습니다.</p>
+                    <div class="mt-3 p-4 bg-orange-50 rounded-lg border border-orange-200 space-y-3">
+                        <p>• <strong class="text-gray-800">완전제곱식 변환:</strong> \(f(x) = x^2 - 2x + a = (x-1)^2 - 1 + a\)</p>
+                        <p>• <strong class="text-gray-800">\(f(x)\)의 최솟값:</strong> \(x=1\)일 때, 최솟값은 \(a-1\)입니다.</p>
+                        <p>• <strong class="text-gray-800">\(|f(x)|\)의 극댓값:</strong> 최솟값을 접어 올린 값이므로 \(|a-1|\) 입니다. (단, \(a-1 < 0\)이어야 극댓점이 생깁니다.)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: 방정식 수립 및 해결 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-purple-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-purple-700">Step 4: 방정식 수립 및 해결</h3>
+                    <p class="text-gray-600">문제의 조건들을 종합하여 상수 \(a\)의 값을 구합니다.</p>
+                    <div class="mt-3 p-4 bg-purple-50 rounded-lg border border-purple-200 space-y-3">
+                        <p>• <strong class="text-gray-800">불연속점:</strong> \(t=\alpha, t=\beta\)이고 \(\alpha < \beta\)이므로, \(\alpha=0\)이고 \(\beta = |a-1|\)입니다.</p>
+                        <p>• <strong class="text-gray-800">조건 대입:</strong> \(\alpha + \beta = 4\) 이므로, \(0 + |a-1| = 4\)</p>
+                        <p>• <strong class="text-gray-800">\(a\) 값 추론:</strong> \(|a-1| = 4\). 극댓값이 존재하려면 \(f(x)\)의 최솟값이 음수여야 하므로 \(a-1 < 0\). 따라서 \(a-1 = -4\)가 아닌 \( -(a-1) = 4 \) 즉, \(1-a=4\) 입니다. </p>
+                        <p>• <strong class="text-gray-800">\(a\) 값 계산:</strong> \(a = -3\)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: 최종 답안 계산 -->
+            <div class="flex items-start print-avoid-break">
+                <div class="icon-box bg-emerald-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-emerald-800">Step 5: 최종 답안 계산</h3>
+                    <p class="text-gray-600">계산된 \(a\) 값을 문제에서 요구하는 \(f(a)\)에 대입하여 최종 답을 구합니다.</p>
+                    <div class="mt-2 space-y-3 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+                        <p>• <strong class="text-gray-800">구하는 값:</strong> \(f(a) = f(-3)\)</p>
+                        <p>• <strong class="text-gray-800">대입 및 계산:</strong> 
+                           \[ f(-3) = (-3)^2 - 2(-3) + (-3) = 9 + 6 - 3 = 12 \]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-6 sm:p-8 mt-8">
+            <div class="text-center">
+                <p class="text-2xl sm:text-3xl font-bold">최종 정답: \( 12 \)</p>
+                <p class="mt-2 text-gray-300">그래프 해석을 통해 문제의 조건을 체계적으로 분석하여 해결했습니다!</p>
+                <p class="mt-4 text-xs text-gray-400">Copyright 학습코치필 2025</p>
+            </div>
+        </footer>
+    </div>
+    <div class="text-center mt-4 text-gray-500 text-sm no-print">
+        <p>A4 인쇄에 최적화되었습니다.</p>
+    </div>
+</body>
+</html>
