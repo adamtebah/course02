@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미분계수와 극한 심화 문제 풀이 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="p-4 border-b bg-gray-50 no-print">
+            <a href="../index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold">
+                &larr; 전체 목록으로 돌아가기
+            </a>
+        </div>
+        <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">🎯 미분계수와 극한 심화 문제 풀이 전략</h1>
+            <p class="mt-2 text-indigo-100">곱의 미분법과 극한의 성질을 활용한 단계별 분석</p>
+        </header>
+
+        <div class="p-6 sm:p-8 border-b">
+            <h2 class="text-xl font-bold text-center text-gray-800 mb-4">미분계수와 도함수 1번 문제</h2>
+            <div class="flex justify-center mb-6 bg-gray-50 p-4 rounded-lg">
+                <img src="../images/graphic;%2025009_0075.png" 
+                     alt="미분계수와 극한 심화 문제 이미지" 
+                     class="w-full max-w-3xl mx-auto rounded-lg shadow-md border-2 border-gray-200">
+            </div>
+        </div>
+
+        <main class="p-6 sm:p-8">
+            <!-- Step 1: 목표 설정 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-blue-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-blue-700">Step 1: 목표 설정 - 문제의 본질 파악하기</h3>
+                    <p class="text-gray-600">주어진 극한식은 \(h(x) = f(x)g(x)\)로 둘 때, \(h'(1)\)의 미분계수 정의와 일치합니다.</p>
+                    <div class="mt-3 p-4 bg-blue-50 rounded-lg border border-blue-200 space-y-3">
+                        <p>• <strong class="text-gray-800">주어진 식:</strong> \( \lim_{x \to 1} \frac{f(x)g(x) - f(1)g(1)}{x-1} = h'(1) \)</p>
+                        <p>• <strong class="text-gray-800">곱의 미분법 적용:</strong> \(h'(1) = f'(1)g(1) + f(1)g'(1)\)</p>
+                        <p>• <strong class="text-gray-800">최종 목표:</strong> \(f(1), g(1), f'(1), g'(1)\) 네 개의 값을 구하여 \(h'(1)\)을 계산합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: 조건 분석 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-teal-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-teal-700">Step 2: 조건 (가), (나) 분석하기</h3>
+                    <p class="text-gray-600">극한의 성질(\(\frac{0}{0}\) 꼴)과 미분계수의 정의를 이용하여 관계식을 도출합니다.</p>
+                    <div class="mt-3 grid md:grid-cols-2 gap-4">
+                        <div class="p-4 bg-teal-50 rounded-lg border border-teal-200">
+                            <p class="font-bold text-teal-800">조건 (가) 분석</p>
+                            <p class="text-sm text-gray-600 mt-1">\( \lim_{x \to 1} \frac{3f(x) - g(1)}{x-1} = g(1) + 3 \)</p>
+                            <hr class="my-2">
+                            <p class="text-sm">1. 분모 \(\to 0\)이므로 분자 \(\to 0\)<br>\(\implies 3f(1) - g(1) = 0 \implies \boldsymbol{g(1) = 3f(1)}\)</p>
+                            <p class="text-sm mt-2">2. \(g(1)\)을 대입하여 미분계수 형태로 변환<br>\(\implies 3f'(1) = g(1) + 3\)</p>
+                        </div>
+                        <div class="p-4 bg-teal-50 rounded-lg border border-teal-200">
+                            <p class="font-bold text-teal-800">조건 (나) 분석</p>
+                             <p class="text-sm text-gray-600 mt-1">\( \lim_{x \to 1} \frac{g(x) - 3f(1)}{x-1} = f(1) + 11 \)</p>
+                             <hr class="my-2">
+                             <p class="text-sm">1. \(3f(1)\)을 \(g(1)\)으로 치환<br>\(\implies \lim_{x \to 1} \frac{g(x) - g(1)}{x-1} = g'(1)\)</p>
+                             <p class="text-sm mt-2">2. 미분계수와 우변을 연결<br>\(\implies g'(1) = f(1) + 11\)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: 추가 관계식 도출 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                 <div class="icon-box bg-purple-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-purple-700">Step 3: 마지막 단서 찾기</h3>
+                    <p class="text-gray-600">문제의 첫 번째 식 \(g(x) = (2x+1)f(x)\)를 미분하여 네 번째 관계식을 완성합니다.</p>
+                     <div class="mt-3 p-4 bg-purple-50 rounded-lg border border-purple-200 space-y-2">
+                        <p>• <strong class="text-gray-800">원본 식:</strong> \(g(x) = (2x+1)f(x)\)</p>
+                        <p>• <strong class="text-gray-800">양변 미분 (곱의 미분법):</strong> \(g'(x) = 2f(x) + (2x+1)f'(x)\)</p>
+                        <p>• <strong class="text-gray-800">\(x=1\) 대입:</strong> \(g'(1) = 2f(1) + 3f'(1)\)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Step 4: 연립방정식 풀이 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-orange-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.125-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.125-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-orange-700">Step 4: 연립방정식 풀이</h3>
+                    <p class="text-gray-600">지금까지 구한 네 개의 식을 연립하여 각 값을 계산합니다.</p>
+                    <div class="mt-3 p-4 bg-orange-50 rounded-lg border border-orange-200 space-y-2 text-sm">
+                        <p>1. \(3f'(1) = 3f(1) + 3 \implies \boldsymbol{f'(1) = f(1) + 1}\)</p>
+                        <p>2. \(g'(1) = 2f(1) + 3(f(1)+1) \implies \boldsymbol{g'(1) = 5f(1) + 3}\)</p>
+                        <p>3. \(5f(1) + 3 = f(1) + 11 \implies 4f(1) = 8 \implies \boldsymbol{f(1) = 2}\)</p>
+                        <p>4. \(\boldsymbol{g(1) = 3(2) = 6}\), \(\boldsymbol{f'(1) = 2 + 1 = 3}\), \(\boldsymbol{g'(1) = 2 + 11 = 13}\)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: 최종 계산 -->
+            <div class="flex items-start print-avoid-break">
+                <div class="icon-box bg-green-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-green-800">Step 5: 최종 답 계산</h3>
+                    <p class="text-gray-600">Step 1에서 설정한 목표 식에 계산된 값들을 대입합니다.</p>
+                    <div class="mt-2 space-y-3 p-4 bg-green-50 rounded-lg border border-green-200">
+                        <p class="text-gray-800">
+                           \(h'(1) = f'(1)g(1) + f(1)g'(1)\)
+                        </p>
+                        <p class="text-gray-800">
+                           \(= (3)(6) + (2)(13)\)
+                        </p>
+                         <p class="text-gray-800">
+                           \(= 18 + 26 = \boldsymbol{44}\)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-6 sm:p-8 mt-8">
+            <div class="text-center">
+                <p class="text-2xl sm:text-3xl font-bold">최종 정답: \( 44 \)</p>
+                <p class="mt-2 text-gray-300">복잡한 조건들을 체계적으로 분석하여 문제를 해결했습니다!</p>
+                <p class="mt-4 text-xs text-gray-400">Copyright 학습코치필 2025</p>
+            </div>
+        </footer>
+    </div>
+    <div class="text-center mt-4 text-gray-500 text-sm no-print">
+        <p>A4 인쇄에 최적화되었습니다.</p>
+    </div>
+</body>
+</html>
