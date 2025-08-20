@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미분계수와 인수정리 활용 문제 풀이</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="p-4 border-b bg-gray-50 no-print">
+            <a href="../index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold">
+                &larr; 전체 목록으로 돌아가기
+            </a>
+        </div>
+        <header class="bg-gradient-to-r from-blue-600 to-teal-500 text-white p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">💡 미분계수와 인수정리 활용 문제 풀이</h1>
+            <p class="mt-2 text-blue-100">주어진 접선 정보로부터 새로운 함수를 정의하고 해결하는 과정</p>
+        </header>
+
+        <div class="p-6 sm:p-8 border-b">
+            <h2 class="text-xl font-bold text-center text-gray-800 mb-4">도함수의 활용1 1번 문제</h2>
+            <div class="flex justify-center mb-6 bg-gray-50 p-4 rounded-lg">
+                <img src="../images/graphic;%2025009_0102.png" 
+                     alt="미분 심화 문제 이미지" 
+                     class="w-full max-w-3xl mx-auto rounded-lg shadow-md border-2 border-gray-200">
+            </div>
+        </div>
+
+        <main class="p-6 sm:p-8">
+            <!-- Step 1: 단서 찾기 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-yellow-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 7h2a2 2 0 012 2v2a2 2 0 01-2 2h-2m-2-4h-2a2 2 0 00-2 2v2a2 2 0 002 2h2m2-4v.01M15 11h.01M9 11h.01M12 15h.01M12 11v.01M12 9v.01M12 3a9 9 0 100 18 9 9 0 000-18z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-yellow-700">Step 1: 핵심 단서 추출</h3>
+                    <p class="text-gray-600">"곡선 \(y=f(x)\) 위의 점 \((1, f(1))\)에서의 접선의 방정식이 \(y=x-2\)" 라는 문장에서 두 가지 핵심 정보를 얻습니다.</p>
+                    <div class="mt-3 p-4 bg-yellow-50 rounded-lg border border-yellow-200 space-y-3">
+                        <p>• <strong class="text-gray-800">접점의 함숫값:</strong> 점 \((1, f(1))\)은 접선 위의 점이므로, \(f(1) = 1 - 2 = -1\) 입니다.</p>
+                        <p>• <strong class="text-gray-800">미분계수 (접선의 기울기):</strong> \(x=1\)에서의 접선의 기울기는 1이므로, \(f'(1) = 1\) 입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: g(x) 분석 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-green-500 text-white rounded-full flex items-center justify-center mr-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-green-700">Step 2: 새로운 함수 \(g(x)\)의 특성 파악</h3>
+                    <p class="text-gray-600">주어진 함수 \(g(x) = f(x) - x + 2\)에 Step 1의 단서를 적용하여 \(x=1\)에서의 특성을 분석합니다.</p>
+                    <div class="mt-3 p-4 bg-green-50 rounded-lg border border-green-200 space-y-3">
+                        <p>• <strong class="text-gray-800">함숫값 확인:</strong> \(g(1) = f(1) - 1 + 2 = (-1) - 1 + 2 = 0\)</p>
+                        <p>• <strong class="text-gray-800">미분계수 확인:</strong> \(g'(x) = f'(x) - 1\) 이므로, \(g'(1) = f'(1) - 1 = 1 - 1 = 0\)</p>
+                        <p class="font-semibold text-green-800">🔑 <strong>핵심 발견:</strong> \(g(1)=0\)이고 \(g'(1)=0\)이므로, 함수 \(g(x)\)는 \((x-1)^2\)을 인수로 가집니다.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Step 3: 식 구체화 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-indigo-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-indigo-700">Step 3: 함수 \(g(x)\)와 \(f(x)\) 식 세우기</h3>
+                    <p class="text-gray-600">\(f(x)\)가 최고차항 계수가 1인 삼차함수라는 조건과 Step 2의 발견을 종합하여 식을 세웁니다.</p>
+                    <div class="mt-3 p-4 bg-indigo-50 rounded-lg border border-indigo-200 space-y-3">
+                        <p>• <strong class="text-gray-800">\(g(x)\) 가정:</strong> \(f(x)\)가 3차식이므로 \(g(x)\)도 3차식입니다. 따라서 \(g(x) = (x-1)^2(x-p)\)로 놓을 수 있습니다. (단, \(p\)는 상수)</p>
+                        <p>• <strong class="text-gray-800">\(f(x)\) 표현:</strong> \(f(x) = g(x) + x - 2 = (x-1)^2(x-p) + x - 2\)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: 미지수 p 구하기 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-purple-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-purple-700">Step 4: 미지수 \(p\) 값 결정</h3>
+                    <p class="text-gray-600">아직 사용하지 않은 조건 \(3g(3) = 2h(3)\)을 이용하여 \(p\)를 구합니다.</p>
+                    <div class="mt-3 p-4 bg-purple-50 rounded-lg border border-purple-200 space-y-3">
+                        <p>1. <strong class="text-gray-800">\(g(3)\) 계산:</strong> \(g(3) = (3-1)^2(3-p) = 4(3-p)\)</p>
+                        <p>2. <strong class="text-gray-800">\(h(3)\) 계산:</strong></p>
+                        <ul class="list-disc list-inside ml-4 text-sm text-gray-700">
+                            <li>\(h(x) = (x-1)\{f'(x)-x\}\) 이므로 \(h(3) = 2\{f'(3)-3\}\)</li>
+                            <li>\(f'(x) = g'(x) + 1\) 이고, \(g'(x) = 2(x-1)(x-p) + (x-1)^2\) (곱의 미분법)</li>
+                            <li>\(g'(3) = 2(2)(3-p) + (2)^2 = 4(3-p) + 4 = 12 - 4p + 4 = 16 - 4p\)</li>
+                            <li>\(f'(3) = g'(3) + 1 = (16-4p) + 1 = 17-4p\)</li>
+                            <li>따라서 \(h(3) = 2\{(17-4p)-3\} = 2(14-4p)\)</li>
+                        </ul>
+                        <p>3. <strong class="text-gray-800">방정식 풀이:</strong> \(3 \times 4(3-p) = 2 \times 2(14-4p)\)</p>
+                        <p class="text-center font-semibold">\(12(3-p) = 4(14-4p) \implies 3(3-p) = 14-4p \implies 9-3p = 14-4p \implies p=5\)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: 최종 답 -->
+            <div class="flex items-start print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-red-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-red-800">Step 5: 최종 답 계산</h3>
+                    <p class="text-gray-600">\(p=5\)를 대입하여 \(f(x)\)를 확정하고, \(f(6)\)의 값을 구합니다.</p>
+                    <div class="mt-2 space-y-3 p-4 bg-red-50 rounded-lg border border-red-200">
+                        <p>• <strong class="text-gray-800">함수 \(f(x)\) 확정:</strong>
+                           \[f(x) = (x-1)^2(x-5) + x - 2\]
+                        </p>
+                        <p>• <strong class="text-gray-800">\(f(6)\) 계산:</strong>
+                           \[f(6) = (6-1)^2(6-5) + 6 - 2 = (5^2 \times 1) + 4 = 25 + 4 = 29\]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-6 sm:p-8 mt-8">
+            <div class="text-center">
+                <p class="text-2xl sm:text-3xl font-bold">최종 정답: \( 29 \)</p>
+                <p class="mt-2 text-gray-300">함수의 관계를 파악하고 미분계수의 의미를 적용하여 해결했습니다!</p>
+                <p class="mt-4 text-xs text-gray-400">Copyright 학습코치필 2025</p>
+            </div>
+        </footer>
+    </div>
+    <div class="text-center mt-4 text-gray-500 text-sm no-print">
+        <p>A4 인쇄에 최적화되었습니다.</p>
+    </div>
+</body>
+</html>
