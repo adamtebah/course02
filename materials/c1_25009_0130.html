@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사차함수 심화 문제 풀이 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="p-4 border-b bg-gray-50 no-print">
+            <a href="../index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold">
+                &larr; 전체 목록으로 돌아가기
+            </a>
+        </div>
+        <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">🎯 사차함수 심화 문제 풀이 로드맵</h1>
+            <p class="mt-2 text-indigo-100">절댓값 함수의 미분가능성과 불연속 조건을 활용한 그래프 추론</p>
+        </header>
+
+        <div class="p-6 sm:p-8 border-b">
+            <h2 class="text-xl font-bold text-center text-gray-800 mb-4">도함수의 활용2 2번 문제</h2>
+            <div class="flex justify-center mb-6 bg-gray-50 p-4 rounded-lg">
+                <img src="../images/graphic;%2025009_0130.png" 
+                     alt="사차함수 심화 문제 이미지" 
+                     class="w-full max-w-3xl mx-auto rounded-lg shadow-md border-2 border-gray-200">
+            </div>
+        </div>
+
+        <main class="p-6 sm:p-8">
+            <!-- Step 1: 조건 분석 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-blue-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-blue-700">Step 1: 조건 분석 및 전략 수립</h3>
+                    <p class="text-gray-600">주어진 조건들을 해석하여 문제 해결의 단서를 찾습니다.</p>
+                    <div class="mt-3 p-4 bg-blue-50 rounded-lg border border-blue-200 space-y-3">
+                        <p>• <strong class="text-gray-800">함수 \(f(x)\):</strong> 최고차항 계수 1, \(f(0)=0\), \(f'(0)=0\). 이는 \(f(x)\)가 원점에서 x축에 접하며, \(x^2\)을 인수로 가짐을 의미합니다.</p>
+                        <p>• <strong class="text-gray-800">함수 \(h(t)\):</strong> \(g(x)=|t-f(x)|\)의 미분 불가능점 개수. 즉, \(y=t\)와 \(y=f(x)\)의 교점 중 <strong class="text-red-600">접점은 제외</strong>한 개수입니다.</p>
+                        <p>• <strong class="text-gray-800">조건 (가):</strong> \(h(t)\)의 불연속점은 \(t=-27, k\). 불연속점은 \(y=t\)가 \(f(x)\)의 극값에 접할 때 발생하므로, \(f(x)\)의 극값은 \(-27\)과 \(k\) 두 종류뿐입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: 그래프 추론 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-purple-500 text-white rounded-full flex items-center justify-center mr-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-purple-700">Step 2: (나) 조건을 이용한 그래프 형태 확정</h3>
+                    <p class="text-gray-600">조건 (나) \(\lim_{t\to0^+} h(t) + \lim_{t\to0^-} h(t) + h(0)=5\)를 만족하는 \(f(x)\)의 개형을 찾습니다.</p>
+                    <div class="mt-2 p-4 bg-purple-50 rounded-lg border border-purple-200 space-y-3">
+                        <p>• <strong class="text-gray-800">가설 검증:</strong> \(t=0\) 근방에서 \(h(t)\)가 연속이라 가정하면, \(2\lim_{t\to0}h(t) + h(0) = 5\)입니다. 이를 만족하는 정수 해는 \(\lim_{t\to0}h(t)=2, h(0)=1\) 뿐입니다.</p>
+                        <p>• <strong class="text-gray-800">그래프 해석:</strong></p>
+                        <ul class="list-disc list-inside ml-2 text-gray-700">
+                            <li>\(h(0)=1\): \(y=0\)과 접하지 않는 교점이 1개. \((0,0)\)에서 접하므로, 다른 교점이 1개 더 존재.</li>
+                            <li>\(\lim_{t\to0}h(t)=2\): \(y=0\) 바로 위아래에서 교점이 2개.</li>
+                        </ul>
+                        <p>• <strong class="text-gray-800">결론:</strong> 이 조건을 모두 만족하는 개형은 \(f(x)\)가 원점에서 극점이 아닌 **변곡점(접선의 기울기가 0)**을 가지며 x축을 통과하는 형태입니다. 따라서 \(f(x)\)는 \(x^3\)을 인수로 가집니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: 함수식 계산 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-teal-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-teal-700">Step 3: 함수식 확정</h3>
+                    <p class="text-gray-600">추론한 그래프 형태와 남은 조건들을 이용해 \(f(x)\)의 식을 구합니다.</p>
+                    <div class="mt-2 p-4 bg-teal-50 rounded-lg border border-teal-200 space-y-3">
+                        <p>• <strong class="text-gray-800">함수 설정:</strong> \(f(x)=x^3(x-a)\)로 설정합니다.</p>
+                        <p>• <strong class="text-gray-800">극소점 찾기:</strong> \(f'(x) = 4x^3 - 3ax^2 = x^2(4x-3a)\). 극소점은 \(x=\frac{3a}{4}\)입니다.</p>
+                        <p>• <strong class="text-gray-800">극솟값 계산:</strong> (가) 조건에 의해 극솟값은 \(-27\)입니다.
+                           $$f\left(\frac{3a}{4}\right) = \left(\frac{3a}{4}\right)^3\left(\frac{3a}{4}-a\right) = -\frac{27a^4}{256} = -27$$
+                        </p>
+                        <p>• <strong class="text-gray-800">\(a\) 값 결정:</strong> 위 식을 풀면 \(a^4=256\), 즉 \(a=\pm4\)입니다. 조건 \(f(1)<1\)에 의해, \(a=4\)일 때 \(f(1)=-3 < 1\) (참), \(a=-4\)일 때 \(f(1)=5 < 1\) (거짓). 따라서 \(a=4\)입니다.</p>
+                        <p>• <strong class="text-gray-800">최종 함수:</strong> $$f(x) = x^4 - 4x^3$$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: 최종 결과 -->
+            <div class="flex items-start print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-emerald-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-emerald-800">Step 4: 답안 계산</h3>
+                    <p class="text-gray-600">확정된 함수 \(f(x)\)에 \(x=1\)을 대입하여 최종 답을 구합니다.</p>
+                    <div class="mt-2 space-y-3 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+                        <p>• <strong class="text-gray-800">계산:</strong>
+                           \[ f(1) = (1)^4 - 4(1)^3 = 1 - 4 = -3 \]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-6 sm:p-8 mt-8">
+            <div class="text-center">
+                <p class="text-2xl sm:text-3xl font-bold">최종 정답: \( -3 \)</p>
+                <p class="mt-2 text-gray-300">모든 조건을 만족하는 함수를 성공적으로 찾았습니다!</p>
+                <p class="mt-4 text-xs text-gray-400">Copyright 학습코치필 2025</p>
+            </div>
+        </footer>
+    </div>
+    <div class="text-center mt-4 text-gray-500 text-sm no-print">
+        <p>A4 인쇄에 최적화되었습니다.</p>
+    </div>
+</body>
+</html>
