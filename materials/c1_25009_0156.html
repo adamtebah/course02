@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미적분 심화 문제 풀이 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="p-4 border-b bg-gray-50 no-print">
+            <a href="../index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold">
+                &larr; 전체 목록으로 돌아가기
+            </a>
+        </div>
+        <header class="bg-gradient-to-r from-teal-600 to-cyan-700 text-white p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">💡 미적분 심화 문제 풀이 전략</h1>
+            <p class="mt-2 text-cyan-100">정적분으로 정의된 함수 문제의 체계적인 해결 과정</p>
+        </header>
+
+        <div class="p-6 sm:p-8 border-b">
+            <h2 class="text-xl font-bold text-center text-gray-800 mb-4">부정적분과 정적분 1번 문제</h2>
+            <div class="flex justify-center mb-6 bg-gray-50 p-4 rounded-lg">
+                <img src="../images/graphic;%2025009_0156.png" 
+                     alt="미적분 심화 문제 이미지" 
+                     class="w-full max-w-3xl mx-auto rounded-lg shadow-md border-2 border-gray-200">
+            </div>
+        </div>
+
+        <main class="p-6 sm:p-8">
+            <!-- Step 1: 문제 분석 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-sky-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-sky-700">Step 1: 문제 분석 및 전략 수립</h3>
+                    <p class="text-gray-600">주어진 조건들을 바탕으로 함수의 특징을 파악하고 풀이 방향을 설정합니다.</p>
+                    <div class="mt-3 p-4 bg-sky-50 rounded-lg border border-sky-200 space-y-3">
+                        <p>• <strong class="text-gray-800">핵심 조건:</strong> \(g(x)\)는 최고차항 계수 1인 4차 우함수 \(\rightarrow g(x) = x^4 + ax^2 + b\)</p>
+                        <p>• <strong class="text-gray-800">목표:</strong> 복잡한 적분식을 미분 가능한 형태로 변형하여 \(f(x)\)와 \(g(x)\)의 관계를 찾는다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: 식 변형 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-indigo-500 text-white rounded-full flex items-center justify-center mr-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.096 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-indigo-700">Step 2: 적분식 변형</h3>
+                    <p class="text-gray-600">피적분함수의 \(x\)를 밖으로 분리하여 양변을 미분할 수 있는 형태로 정리합니다.</p>
+                     <div class="mt-3 p-4 bg-indigo-50 rounded-lg border border-indigo-200 space-y-3">
+                        <p>• <strong class="text-gray-800">주어진 식:</strong> $$f(x) + \int_{0}^{x} (x-t)f'(t)dt = g(x)$$</p>
+                        <p>• <strong class="text-gray-800">변형된 식:</strong> $$f(x) + x\int_{0}^{x} f'(t)dt - \int_{0}^{x} tf'(t)dt = g(x)$$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: 미분 및 관계식 도출 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-emerald-500 text-white rounded-full flex items-center justify-center mr-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-emerald-700">Step 3: 양변 미분 및 핵심 관계식 도출</h3>
+                    <p class="text-gray-600">곱의 미분법을 이용하여 양변을 미분하고, \(f(0)=0\) 조건을 적용하여 핵심 관계식을 만듭니다.</p>
+                    <div class="mt-3 p-4 bg-emerald-50 rounded-lg border border-emerald-200 space-y-3">
+                        <p>• <strong class="text-gray-800">미분 과정:</strong> \(f'(x) + (\int_{0}^{x} f'(t)dt + xf'(x)) - xf'(x) = g'(x)\)</p>
+                        <p>• <strong class="text-gray-800">정리 후:</strong> \(f'(x) + f(x) - f(0) = g'(x)\)</p>
+                        <p>• <strong class="text-gray-800">핵심 관계식:</strong> $$f'(x) + f(x) = g'(x)$$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: 함수 추론 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-purple-500 text-white rounded-full flex items-center justify-center mr-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-purple-700">Step 4: 함수 특정 및 계수 비교</h3>
+                    <p class="text-gray-600">핵심 관계식과 \(g(x)\)의 정보를 이용해 \(f(x)\)의 차수와 계수를 추론하고, 숨겨진 조건을 찾아냅니다.</p>
+                    <div class="mt-3 p-4 bg-purple-50 rounded-lg border border-purple-200 space-y-3">
+                        <p>• <strong class="text-gray-800">함수 추론:</strong> \(f'(x)+f(x) = 4x^3+2ax\) 이므로, \(f(x)\)는 최고차항 계수 4인 3차 함수. \( \rightarrow f(x) = 4x^3 + px^2+qx\)</p>
+                        <p>• <strong class="text-gray-800">숨겨진 조건:</strong> 관계식에 \(x=0\)을 대입하여 \(f'(0)=0\)을 도출 \(\rightarrow q=0\)</p>
+                        <p>• <strong class="text-gray-800">계수 비교:</strong> \(p=-12\), \(a=-12\)를 확정.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: 최종 계산 -->
+            <div class="flex items-start print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-rose-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-rose-700">Step 5: 최종 함수 확정 및 답 계산</h3>
+                    <p class="text-gray-600">모든 계수를 확정한 후, 문제에서 요구하는 값을 계산합니다.</p>
+                    <div class="mt-3 p-4 bg-rose-50 rounded-lg border border-rose-200 space-y-3">
+                        <p>• <strong class="text-gray-800">함수 확정:</strong> \(f(x) = 4x^3 - 12x^2\), \(g(x) = x^4 - 12x^2\)</p>
+                        <p>• <strong class="text-gray-800">값 계산:</strong> \(f(1) = 4-12 = -8\), \(g(1) = 1-12 = -11\)</p>
+                        <p>• <strong class="text-gray-800">최종 결과:</strong> \(f(1) + g(1) = -8 + (-11) = -19\)</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-6 sm:p-8 mt-8">
+            <div class="text-center">
+                <p class="text-2xl sm:text-3xl font-bold">최종 정답: \( -19 \)</p>
+                <p class="mt-2 text-gray-300">복잡한 조건을 단계별로 분석하여 해결했습니다!</p>
+                <p class="mt-4 text-xs text-gray-400">Copyright 학습코치필 2025</p>
+            </div>
+        </footer>
+    </div>
+    <div class="text-center mt-4 text-gray-500 text-sm no-print">
+        <p>A4 인쇄에 최적화되었습니다.</p>
+    </div>
+</body>
+</html>
