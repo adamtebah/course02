@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연속성과 정적분 종합 문제 풀이</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="p-4 border-b bg-gray-50 no-print">
+            <a href="../index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold">
+                &larr; 전체 목록으로 돌아가기
+            </a>
+        </div>
+        <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">🎯 연속성 & 정적분 킬러 문제 풀이 전략</h1>
+            <p class="mt-2 text-indigo-100">숨겨진 단서를 찾아 단계별로 해결하는 종합 사고 문제</p>
+        </header>
+
+        <div class="p-6 sm:p-8 border-b">
+            <h2 class="text-xl font-bold text-center text-gray-800 mb-4">부정적분과 정적분1 2번 문제</h2>
+            <div class="flex justify-center mb-6 bg-gray-50 p-4 rounded-lg">
+                <img src="../images/graphic;%2025009_0157.png" 
+                     alt="연속성과 정적분 문제 이미지" 
+                     class="w-full max-w-3xl mx-auto rounded-lg shadow-md border-2 border-gray-200">
+            </div>
+        </div>
+
+        <main class="p-6 sm:p-8">
+            <!-- Step 1: 연속성 조건 분석 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-blue-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-blue-700">Step 1: 연속성으로 \(g(x)\)의 정체 파악</h3>
+                    <p class="text-gray-600">조건 (가)를 이용해 미지의 일차함수 \(g(x)\)의 핵심 특징을 찾아냅니다.</p>
+                    <div class="mt-3 p-4 bg-blue-50 rounded-lg border border-blue-200 space-y-3">
+                        <p>• <strong>\(f(x)\)의 불연속점 확인:</strong> 함수 \(f(x)\)는 \(x=0\)에서 좌극한(\(0\))과 우극한(\(-1\))이 달라 불연속입니다.</p>
+                        <p>• <strong>연속 만들기:</strong> \(f(x)g(x)\)가 \(x=0\)에서 연속이려면, \((\lim_{x\to 0-}f(x)) \cdot g(0) = (\lim_{x\to 0+}f(x)) \cdot g(0)\)을 만족해야 합니다.</p>
+                        <p>• <strong>\(g(0)\)의 값 추론:</strong> \(0 \cdot g(0) = -1 \cdot g(0)\) 이므로, \(g(0)=0\) 이어야 합니다.</p>
+                        <p class="font-semibold text-gray-800 text-center text-lg bg-white p-2 rounded">
+                            일차함수 \(g(x)=ax+b\)가 원점을 지나므로 \(g(x) = ax\)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: 교점 조건 분석 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                 <div class="icon-box bg-teal-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-teal-700">Step 2: 교점 조건으로 \(a\)의 범위 확정</h3>
+                    <p class="text-gray-600">조건 (나)를 이용해 \(g(x)=ax\)의 계수 \(a\)의 범위를 구합니다.</p>
+                    <div class="mt-2 p-4 bg-teal-50 rounded-lg border border-teal-200 space-y-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">1. 방정식 \(f(x)=ax\) 세우기</p>
+                            <p class="text-sm text-gray-600">• \(x \le 0\) 구간: \(x^2-3x = ax \Rightarrow x=0\) 또는 \(x=3+a\)</p>
+                            <p class="text-sm text-gray-600">• \(x > 0\) 구간: \(x-1 = ax \Rightarrow x=\frac{1}{1-a}\)</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">2. '오직 한 점' 조건 적용</p>
+                            <p class="text-sm text-gray-600">교점이 \(x=0\) 하나만 존재하려면, 다른 해 후보들이 각 구간의 유효한 해가 되면 안됩니다.</p>
+                            <p class="text-sm text-gray-600">• \(x=3+a\)는 \(x \le 0\) 구간을 벗어나야 함 \(\Rightarrow 3+a > 0 \Rightarrow a > -3\)</p>
+                            <p class="text-sm text-gray-600">• \(x=\frac{1}{1-a}\)는 \(x > 0\) 구간을 벗어나야 함 \(\Rightarrow \frac{1}{1-a} \le 0 \Rightarrow a \ge 1\)</p>
+                            <p class="font-semibold text-gray-800 text-center text-lg bg-white p-2 rounded">
+                                두 조건을 모두 만족하는 공통 범위: \(a \ge 1\)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: 정적분 계산 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-purple-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h3m-3-10h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-purple-700">Step 3: 정적분 계산</h3>
+                    <p class="text-gray-600">앞서 구한 정보를 바탕으로 정적분 값을 \(a\)에 대한 식으로 표현합니다.</p>
+                    <div class="mt-2 p-4 bg-purple-50 rounded-lg border border-purple-200 space-y-3">
+                        <p>• <strong class="text-gray-800">구간 나누기:</strong> \(f(x)\)의 정의에 따라 \(x=0\)을 기준으로 적분 구간을 나눕니다.</p>
+                        <p class="text-center text-sm sm:text-base bg-white p-2 rounded">
+                           \( \int_{-2}^{3} f(x)g(x)dx = \int_{-2}^{0} (x^2-3x)(ax)dx + \int_{0}^{3} (x-1)(ax)dx \)
+                        </p>
+                         <p>• <strong class="text-gray-800">계산 과정:</strong></p>
+                        <p class="text-center text-sm sm:text-base">
+                           \( a \left[ \frac{x^4}{4} - x^3 \right]_{-2}^{0} + a \left[ \frac{x^3}{3} - \frac{x^2}{2} \right]_{0}^{3} = a(-12) + a(\frac{9}{2}) \)
+                        </p>
+                        <p class="font-semibold text-gray-800 text-center text-lg bg-white p-2 rounded">
+                            최종 적분 값: \(-\frac{15}{2}a\)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: 최종 결과 -->
+            <div class="flex items-start print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-emerald-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-emerald-800">Step 4: 최댓값 결론 도출</h3>
+                    <p class="text-gray-600">\(a \ge 1\) 범위에서 적분 값 \(-\frac{15}{2}a\)의 최댓값을 찾습니다.</p>
+                    <div class="mt-2 space-y-3 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+                        <p class="text-gray-800">
+                           적분 값 \(-\frac{15}{2}a\)는 \(a\)에 대한 기울기가 음수인 일차함수입니다.
+                        </p>
+                        <p class="text-gray-800">따라서, \(a \ge 1\) 범위에서 \(a\)가 가장 작은 값일 때, 즉 \(a=1\)일 때 최댓값을 갖습니다.</p>
+                        <p class="text-center font-bold text-2xl text-emerald-600">
+                            $$ \text{최댓값} = -\frac{15}{2}(1) = -\frac{15}{2} $$
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-6 sm:p-8 mt-8">
+            <div class="text-center">
+                <p class="text-2xl sm:text-3xl font-bold">최종 정답: \( -\frac{15}{2} \) (3번)</p>
+                <p class="mt-2 text-gray-300">각 조건의 의미를 논리적으로 연결하여 문제를 해결했습니다!</p>
+                <p class="mt-4 text-xs text-gray-400">Copyright 학습코치필 2025</p>
+            </div>
+        </footer>
+    </div>
+    <div class="text-center mt-4 text-gray-500 text-sm no-print">
+        <p>A4 인쇄에 최적화되었습니다.</p>
+    </div>
+</body>
+</html>
