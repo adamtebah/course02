@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수와 역함수 넓이 문제 풀이 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="p-4 border-b bg-gray-50 no-print">
+            <a href="../index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold">
+                &larr; 전체 목록으로 돌아가기
+            </a>
+        </div>
+        <header class="bg-gradient-to-r from-slate-700 to-gray-800 text-white p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">🎯 함수와 역함수 넓이 문제 풀이 전략</h1>
+            <p class="mt-2 text-gray-300">대칭성과 정적분을 활용한 종합 추론 문제 해결 과정</p>
+        </header>
+
+        <div class="p-6 sm:p-8 border-b">
+            <h2 class="text-xl font-bold text-center text-gray-800 mb-4">정적분의 활용 2번 문제</h2>
+            <div class="flex justify-center mb-6 bg-gray-50 p-4 rounded-lg">
+                <img src="../images/graphic;%2025009_0181.png" 
+                     alt="함수와 역함수 넓이 문제" 
+                     class="w-full max-w-3xl mx-auto rounded-lg shadow-md border-2 border-gray-200">
+            </div>
+        </div>
+
+        <main class="p-6 sm:p-8">
+            <!-- Step 1: 조건 분석 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-blue-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-blue-700">Step 1: 조건 분석 - 함수의 정체 파악하기</h3>
+                    <p class="text-gray-600">주어진 조건 (가)를 통해 함수 \(f(x)\)의 핵심적인 두 가지 특징을 파악합니다.</p>
+                    <div class="mt-3 p-4 bg-blue-50 rounded-lg border border-blue-200 space-y-3">
+                        <p>• <strong class="text-gray-800">기함수 (원점 대칭):</strong> \(f(x) = -f(-x)\) 조건은 그래프가 원점에 대해 대칭임을 의미합니다.</p>
+                        <p>• <strong class="text-gray-800">감소 함수:</strong> \(f'(x) \le 0\) 조건은 함수가 모든 실수 구간에서 감소하거나 상수임을 의미합니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: 교점 특정 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-teal-500 text-white rounded-full flex items-center justify-center mr-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118L2.98 9.828c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-teal-700">Step 2: 단서 조합 - 교점의 좌표 특정하기</h3>
+                    <p class="text-gray-600">함수의 특징과 주어진 조건들을 조합하여 \(y=f(x)\)와 \(y=-x\)의 교점을 찾습니다.</p>
+                    <div class="mt-2 p-4 bg-teal-50 rounded-lg border border-teal-200 space-y-2">
+                        <p class="text-sm text-gray-700">1. 두 원점 대칭 그래프가 세 점에서 만나므로, 한 교점은 반드시 원점 \((0,0)\) 입니다.</p>
+                        <p class="text-sm text-gray-700">2. 조건 \(f(3)=-3\)은 점 \((3,-3)\)이 \(y=f(x)\) 위의 점임을 의미하며, 이 점은 \(y=-x\) 위의 점이기도 합니다. 따라서 이 점이 교점 중 하나입니다.</p>
+                        <p class="font-semibold text-gray-800">3. 원점 대칭성에 의해 나머지 교점은 자연스럽게 \((-3,3)\)이 됩니다.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Step 3: 전략 수립 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-purple-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m-6 13v-5.172a1 1 0 01.553-.894l6-3a1 1 0 011.106 0l6 3a1 1 0 01.553.894V17m-6-10V7m6 10V7" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-purple-700">Step 3: 전략 수립 - 기하학적 접근</h3>
+                    <p class="text-gray-600">구하려는 전체 넓이를 \(y=-x\)를 기준으로 두 부분으로 나누어 생각합니다.</p>
+                    <div class="mt-2 p-4 bg-purple-50 rounded-lg border border-purple-200 space-y-3">
+                         <p>• <strong class="text-gray-800">전체 넓이 \(A\):</strong> \(y=f(x)\)와 \(y=f^{-1}(x)\) 사이의 넓이</p>
+                         <p>• <strong class="text-gray-800">넓이 1:</strong> \(y=f(x)\)와 \(y=-x\) 사이의 넓이</p>
+                         <p>• <strong class="text-gray-800">넓이 2:</strong> \(y=f^{-1}(x)\)와 \(y=-x\) 사이의 넓이</p>
+                         <p class="font-semibold">\(A = (\text{넓이 1}) + (\text{넓이 2})\). 두 넓이는 대칭성에 의해 같습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: 넓이 계산 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-orange-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-orange-700">Step 4: 넓이 계산 - 정적분 활용</h3>
+                    <p class="text-gray-600">'넓이 1'을 정적분을 이용하여 계산합니다. 원점 대칭이므로 절반만 구해서 2배합니다.</p>
+                     <div class="mt-2 p-4 bg-orange-50 rounded-lg border border-orange-200 space-y-3">
+                        <p class="text-gray-800">구간 \([-3, 0]\)에서 \( -x \ge f(x) \) 이므로, 넓이의 절반은 다음과 같습니다.</p>
+                        <p class="text-center text-base bg-white p-2 rounded">
+                           \( \int_{-3}^{0} (-x - f(x))dx = \int_{-3}^{0} -x dx - \int_{-3}^{0} f(x)dx \)
+                        </p>
+                        <p class="text-gray-800">• <strong class="text-gray-800">계산 과정:</strong></p>
+                        <p class="text-center text-sm sm:text-base">
+                           \( = \left[-\frac{x^2}{2}\right]_{-3}^{0} - (2) \)
+                        </p>
+                        <p class="text-center text-sm sm:text-base">
+                           \( = \left(0 - (-\frac{9}{2})\right) - 2 = \frac{9}{2} - 2 = \frac{5}{2} \)
+                        </p>
+                         <p class="font-semibold text-gray-800">따라서 '넓이 1'의 전체 크기는 \(2 \times \frac{5}{2} = 5\) 입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: 최종 결과 -->
+            <div class="flex items-start print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-emerald-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-emerald-800">Step 5: 결론 도출 - 대칭성 활용</h3>
+                    <p class="text-gray-600">'넓이 1'과 '넓이 2'는 \(y=x\) 직선에 대해 대칭이므로 넓이가 같습니다.</p>
+                    <div class="mt-2 space-y-3 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+                        <p class="text-gray-800">
+                           • '넓이 1' (\(y=f(x)\)와 \(y=-x\) 사이) \( = 5 \)
+                        </p>
+                        <p class="text-gray-800">
+                           • '넓이 2' (\(y=f^{-1}(x)\)와 \(y=-x\) 사이) \( = 5 \)
+                        </p>
+                        <p class="text-gray-800">따라서, 구하고자 하는 전체 넓이는 두 넓이의 합입니다.</p>
+                        <p class="text-center font-bold text-2xl text-emerald-600">
+                            $$ 5 + 5 = 10 $$
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-6 sm:p-8 mt-8">
+            <div class="text-center">
+                <p class="text-2xl sm:text-3xl font-bold">최종 정답: \( 10 \) (2번)</p>
+                <p class="mt-2 text-gray-300">함수의 대칭성과 정적분의 성질을 통해 문제를 해결했습니다!</p>
+                <p class="mt-4 text-xs text-gray-400">Copyright 학습코치필 2025</p>
+            </div>
+        </footer>
+    </div>
+    <div class="text-center mt-4 text-gray-500 text-sm no-print">
+        <p>A4 인쇄에 최적화되었습니다.</p>
+    </div>
+</body>
+</html>
