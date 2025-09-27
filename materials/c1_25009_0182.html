@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정적분 응용 문제 풀이 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="p-4 border-b bg-gray-50 no-print">
+            <a href="../index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold">
+                &larr; 전체 목록으로 돌아가기
+            </a>
+        </div>
+        <header class="bg-gradient-to-r from-teal-600 to-cyan-700 text-white p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">💡 정적분 & 등차수열 응용 문제 풀이 전략</h1>
+            <p class="mt-2 text-teal-100">함수 정의부터 정적분 계산까지, 단계별 체계적인 풀이 과정</p>
+        </header>
+
+        <div class="p-6 sm:p-8 border-b">
+            <h2 class="text-xl font-bold text-center text-gray-800 mb-4">정적분의 활용 3번 문제</h2>
+            <div class="flex justify-center mb-6 bg-gray-50 p-4 rounded-lg">
+                <img src="../images/graphic;%2025009_0182.png" 
+                     alt="정적분 응용 문제 이미지" 
+                     class="w-full max-w-3xl mx-auto rounded-lg shadow-md border-2 border-gray-200">
+            </div>
+        </div>
+
+        <main class="p-6 sm:p-8">
+            <!-- Step 1 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-blue-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-blue-700">Step 1: 문제 분석 및 함수 정의</h3>
+                    <p class="text-gray-600">최고차항 계수가 1이고, x축과 세 점 \((1,0), (5,0), (a,0)\)에서 만나는 삼차함수 \(f(x)\)의 식을 세웁니다.</p>
+                    <div class="mt-3 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                        <p class="text-center text-lg font-mono">\( f(x) = (x-1)(x-5)(x-a) \)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-green-500 text-white rounded-full flex items-center justify-center mr-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-green-700">Step 2: 넓이를 정적분으로 표현</h3>
+                    <p class="text-gray-600">그래프와 x축의 위치 관계를 파악하여 넓이 \(S_1, S_2, S_3\)를 정적분으로 나타냅니다.</p>
+                    <div class="mt-2 p-4 bg-green-50 rounded-lg border border-green-200 space-y-2">
+                        <p class="text-gray-800 font-mono text-center">\( S_1 = -\int_{0}^{1} f(x)dx \)</p>
+                        <p class="text-gray-800 font-mono text-center">\( S_2 = \int_{1}^{5} f(x)dx \)</p>
+                        <p class="text-gray-800 font-mono text-center">\( S_3 = -\int_{5}^{a} f(x)dx \)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-purple-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-purple-700">Step 3: 등차수열 조건 활용</h3>
+                    <p class="text-gray-600">세 항 \(2S_1, S_2+a^2, 2S_3\)가 등차수열을 이루므로, 등차중항의 성질을 적용하여 관계식을 만듭니다.</p>
+                    <div class="mt-2 p-4 bg-purple-50 rounded-lg border border-purple-200">
+                        <p class="text-sm text-gray-600 text-center mb-2">\( 2(S_2+a^2) = 2S_1 + 2S_3 \)</p>
+                        <p class="text-center text-lg font-mono">\( S_2 + a^2 = S_1 + S_3 \)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-amber-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-amber-700">Step 4: 방정식 통합</h3>
+                    <p class="text-gray-600">Step 2와 3에서 얻은 식들을 결합하고 정적분의 성질을 이용해 하나의 식으로 정리합니다.</p>
+                     <div class="mt-2 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                         <p class="text-sm text-gray-600 text-center mb-2">\( \int_{0}^{1} f(x)dx + \int_{1}^{5} f(x)dx + \int_{5}^{a} f(x)dx + a^2 = 0 \)</p>
+                         <p class="text-center text-lg font-mono">\( \int_{0}^{a} f(x)dx + a^2 = 0 \)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-rose-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7.014A8.003 8.003 0 0117.657 18.657z" /><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 16.121A3 3 0 1014.12 11.88l-4.242 4.242z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-rose-700">Step 5: 방정식 풀이 및 \(a\) 값 계산</h3>
+                    <p class="text-gray-600">통합된 식의 정적분을 계산하여 \(a\)에 대한 방정식을 풀고, \(a>5\) 조건을 만족하는 해를 구합니다.</p>
+                     <div class="mt-2 p-4 bg-rose-50 rounded-lg border border-rose-200 space-y-2">
+                         <p class="text-sm text-gray-600 text-center">방정식: \( a^2(a^2 - 12a + 18) = 0 \)</p>
+                         <p class="text-center text-lg font-mono">\( a = 6 + 3\sqrt{2} \)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6: 최종 결과 -->
+            <div class="flex items-start print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-indigo-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-indigo-800">Step 6: 결론 도출</h3>
+                    <p class="text-gray-600">문제에서 요구하는 \(f(6)\)의 값을 계산하여 최종 답을 구합니다.</p>
+                    <div class="mt-2 p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+                         <p class="text-sm text-gray-600 text-center mb-2">\( f(6) = (6-1)(6-5)(6 - (6+3\sqrt{2})) \)</p>
+                         <p class="text-center text-lg font-mono">\( f(6) = (5)(1)(-3\sqrt{2}) = -15\sqrt{2} \)</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-6 sm:p-8 mt-8">
+            <div class="text-center">
+                <p class="text-2xl sm:text-3xl font-bold">최종 정답: \( -15\sqrt{2} \) (2번)</p>
+                <p class="mt-2 text-gray-300">여러 개념을 통합하여 복잡한 문제를 명쾌하게 해결했습니다!</p>
+                <p class="mt-4 text-xs text-gray-400">Copyright 학습코치필 2025</p>
+            </div>
+        </footer>
+    </div>
+    <div class="text-center mt-4 text-gray-500 text-sm no-print">
+        <p>A4 인쇄에 최적화되었습니다.</p>
+    </div>
+</body>
+</html>
