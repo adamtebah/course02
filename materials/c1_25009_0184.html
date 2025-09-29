@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속도와 거리 문제 풀이 인포그래픽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="p-4 border-b bg-gray-50 no-print">
+            <a href="../index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold">
+                &larr; 전체 목록으로 돌아가기
+            </a>
+        </div>
+        <header class="bg-gradient-to-r from-blue-600 to-cyan-500 text-white p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">🚀 속도와 거리, 최대/최소 문제 풀이 전략</h1>
+            <p class="mt-2 text-blue-100">적분과 미분을 활용한 단계별 문제 해결 인포그래픽</p>
+        </header>
+
+        <div class="p-6 sm:p-8 border-b">
+            <h2 class="text-xl font-bold text-center text-gray-800 mb-4">정적분의 활용 5번 문제</h2>
+            <div class="flex justify-center mb-6 bg-gray-50 p-4 rounded-lg">
+                <img src="../images/graphic;%2025009_0184.png" 
+                     alt="속도와 거리 문제 이미지" 
+                     class="w-full max-w-3xl mx-auto rounded-lg shadow-md border-2 border-gray-200">
+            </div>
+        </div>
+
+        <main class="p-6 sm:p-8">
+            <!-- Step 1: 위치 함수 구하기 (적분) -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-green-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-green-700">Step 1: 위치 함수 구하기 (적분)</h3>
+                    <p class="text-gray-600">'속도'를 '적분'하여 '위치'를 구합니다. '원점 출발' 조건으로 적분상수는 0이 됩니다.</p>
+                    <div class="mt-3 p-4 bg-green-50 rounded-lg border border-green-200 space-y-3">
+                        <p>• <strong class="text-gray-800">점 P의 위치:</strong> \(v_1(t) = t^2-2t\)</p>
+                        <p class="text-center font-mono bg-white p-2 rounded">\(x_P(t) = \int (t^2-2t)dt = \frac{1}{3}t^3 - t^2\)</p>
+                        <p>• <strong class="text-gray-800">점 Q의 위치:</strong> \(v_2(t) = 2t-a\)</p>
+                        <p class="text-center font-mono bg-white p-2 rounded">\(x_Q(t) = \int (2t-a)dt = t^2 - at\)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: '한 번만 만난다' 조건 해석 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-yellow-500 text-white rounded-full flex items-center justify-center mr-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-yellow-700">Step 2: '한 번만 만난다' 조건 해석 (방정식 & 판별식)</h3>
+                    <p class="text-gray-600">'만난다'는 것은 위치가 같다는 의미입니다. \(x_P(t) = x_Q(t)\) 방정식을 세워 해결합니다.</p>
+                    <div class="mt-2 p-4 bg-yellow-50 rounded-lg border border-yellow-200 space-y-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">1. 방정식 세우기</p>
+                            <p class="mt-2 text-center text-lg font-mono bg-white p-2 rounded">\( \frac{1}{3}t^3 - t^2 = t^2 - at \)</p>
+                            <p class="mt-2 text-center text-lg font-mono bg-white p-2 rounded">\( t(t^2 - 6t + 3a) = 0 \)</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">2. 조건 분석</p>
+                            <p class="text-sm text-gray-600">\(t>0\)에서 오직 하나의 해 \(k\)를 가져야 하므로, 이차방정식 \(t^2-6t+3a=0\)이 양수인 중근을 가져야 합니다. 즉, 판별식 \(D=0\)입니다.</p>
+                             <p class="mt-2 text-center text-lg font-mono bg-white p-2 rounded">\(D = (-6)^2 - 4(1)(3a) = 36-12a=0\)</p>
+                             <p class="mt-2 text-center text-lg font-semibold bg-white p-2 rounded">\( \therefore a=3, k=3 \)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: 거리 함수 최댓값 구하기 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-purple-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-purple-700">Step 3: 거리 함수 최댓값 구하기 (미분)</h3>
+                    <p class="text-gray-600">\(0 < t < 3\) 범위에서 거리 함수 \(f(t)\)의 최댓값을 찾기 위해 미분을 활용합니다.</p>
+                    <div class="mt-2 p-4 bg-purple-50 rounded-lg border border-purple-200 space-y-3">
+                        <p>• <strong class="text-gray-800">거리 함수 정의:</strong></p>
+                        <p class="text-center text-sm sm:text-base bg-white p-2 rounded">
+                            \( f(t) = |x_P(t) - x_Q(t)| = |\frac{1}{3}t^3 - 2t^2 + 3t| \)
+                        </p>
+                        <p class="text-sm text-gray-600">\(0 < t < 3\)에서 \(f(t) \ge 0\)이므로, \(f(t) = \frac{1}{3}t^3 - 2t^2 + 3t\)</p>
+                        <p>• <strong class="text-gray-800">미분을 통한 극값 찾기:</strong></p>
+                        <p class="text-center text-sm sm:text-base bg-white p-2 rounded">
+                            \( f'(t) = t^2 - 4t + 3 = (t-1)(t-3) = 0 \)
+                        </p>
+                        <p class="text-gray-600 text-sm">\(t=1\) 또는 \(t=3\)에서 극값을 가집니다. \(0<t<3\) 범위에서 함수는 \(t=1\)일 때 극대이자 최대가 됩니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: 최종 결과 -->
+            <div class="flex items-start print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-red-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4M17 3v4m2-2h-4m2 14h4v-4M19 17v4" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-red-800">Step 4: 최댓값 계산</h3>
+                    <p class="text-gray-600">거리 함수 \(f(t)\)에 \(t=1\)을 대입하여 최댓값을 계산합니다.</p>
+                    <div class="mt-2 space-y-3 p-4 bg-red-50 rounded-lg border border-red-200">
+                        <p class="text-gray-800">최댓값은 \(f(1)\) 입니다.</p>
+                        <p class="text-center font-bold text-2xl text-red-600">
+                            $$ f(1) = \frac{1}{3}(1)^3 - 2(1)^2 + 3(1) = \frac{4}{3} $$
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-6 sm:p-8 mt-8">
+            <div class="text-center">
+                <p class="text-2xl sm:text-3xl font-bold">최종 정답: \( \frac{4}{3} \) (2번)</p>
+                <p class="mt-2 text-gray-300">적분, 방정식, 미분을 아우르는 종합적인 분석으로 문제를 해결했습니다!</p>
+                <p class="mt-4 text-xs text-gray-400">Copyright 학습코치필 2025</p>
+            </div>
+        </footer>
+    </div>
+    <div class="text-center mt-4 text-gray-500 text-sm no-print">
+        <p>A4 인쇄에 최적화되었습니다.</p>
+    </div>
+</body>
+</html>
