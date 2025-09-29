@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사차함수와 접선의 넓이 문제 풀이</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="p-4 border-b bg-gray-50 no-print">
+            <a href="../index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold">
+                &larr; 전체 목록으로 돌아가기
+            </a>
+        </div>
+        <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">🎯 사차함수와 접선의 넓이 문제 풀이 전략</h1>
+            <p class="mt-2 text-indigo-100">조건 해석부터 정적분 계산까지 체계적인 해결 과정</p>
+        </header>
+
+        <div class="p-6 sm:p-8 border-b">
+            <h2 class="text-xl font-bold text-center text-gray-800 mb-4">정적분의 활용 4번 문제</h2>
+            <div class="flex justify-center mb-6 bg-gray-50 p-4 rounded-lg">
+                <img src="../images/graphic;%2025009_0183.png" 
+                     alt="사차함수와 접선 넓이 문제" 
+                     class="w-full max-w-3xl mx-auto rounded-lg shadow-md border-2 border-gray-200">
+            </div>
+        </div>
+
+        <main class="p-6 sm:p-8">
+            <!-- Step 1: 조건 분석 및 함수 추론 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-blue-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-blue-700">Step 1: 조건 분석 및 함수 추론</h3>
+                    <p class="text-gray-600">주어진 조건들을 대수적 표현으로 바꾸어 사차함수 \(f(x)\)의 기본 형태를 구성합니다.</p>
+                    <div class="mt-3 p-4 bg-blue-50 rounded-lg border border-blue-200 space-y-3">
+                        <p>• <strong class="text-gray-800">(가) 원점에서 \(x\)축과 접함:</strong> \(f(0)=0\), \(f'(0)=0\)이므로, 함수 \(f(x)\)는 인수 \(x^2\)을 가집니다.</p>
+                        <p>• <strong class="text-gray-800">점 \((1, 0)\) 통과:</strong> \(f(1)=0\)이므로, 함수 \(f(x)\)는 인수 \((x-1)\)을 가집니다.</p>
+                        <p>• <strong class="text-gray-800">함수식 추론:</strong> 최고차항 계수가 1인 사차함수이므로, 미지의 인수 \((x-a)\)를 포함하여 함수를 다음과 같이 설정합니다.</p>
+                        <p class="text-center text-lg font-mono bg-white p-2 rounded">\( f(x) = x^2(x-1)(x-a) \)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: 접선 방정식과 미지수 탐색 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-teal-500 text-white rounded-full flex items-center justify-center mr-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-teal-700">Step 2: 접선 방정식과 미지수 탐색</h3>
+                    <p class="text-gray-600">점 \((1,0)\)에서의 접선 \(l\)의 방정식을 구하고, 기울기 조건을 이용해 미지수 \(a\)의 범위를 찾습니다.</p>
+                    <div class="mt-2 p-4 bg-teal-50 rounded-lg border border-teal-200 space-y-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">1. 접선의 기울기 \(f'(1)\) 계산</p>
+                            <p class="text-sm text-gray-600">\(f(x) = x^4 - (a+1)x^3 + ax^2\)을 미분하면 \(f'(x) = 4x^3 - 3(a+1)x^2 + 2ax\) 입니다.</p>
+                            <p class="mt-2 text-center text-base bg-white p-2 rounded">기울기 \(m = f'(1) = 4 - 3(a+1) + 2a = 1-a\)</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-gray-800">2. 접선 \(l\)의 방정식 및 \(a\)의 범위</p>
+                            <p class="text-sm text-gray-600">기울기가 \(1-a\)이고 점 \((1,0)\)을 지나므로, 접선의 방정식은 \(y=(1-a)(x-1)\) 입니다. 기울기가 양수이므로 \(1-a > 0\), 즉 \(a < 1\) 입니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: 교점 조건 해석 및 a 값 확정 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-purple-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-purple-700">Step 3: 교점 조건 해석 및 \(a\) 값 확정</h3>
+                    <p class="text-gray-600">방정식 \(f(x)=l(x)\)의 근의 개수 조건을 '중근' 개념으로 해석하여 미지수 \(a\)를 확정합니다.</p>
+                    <div class="mt-2 p-4 bg-purple-50 rounded-lg border border-purple-200 space-y-3">
+                        <p>• <strong class="text-gray-800">방정식 설정:</strong> \(f(x) - l(x) = 0\)의 서로 다른 실근이 2개여야 합니다.</p>
+                        <p class="text-sm text-gray-600">\(x=1\)에서 접하므로, 이 방정식은 \((x-1)^2\)을 인수로 가집니다. 식을 정리하면 다음과 같습니다.</p>
+                        <p class="text-center text-sm sm:text-base bg-white p-2 rounded">
+                            \( (x-1)^2(x^2 + (1-a)x + (1-a)) = 0 \)
+                        </p>
+                        <p>• <strong class="text-gray-800">중근 조건 적용:</strong> 서로 다른 실근이 2개이려면, 이차식 \(x^2+(1-a)x+(1-a)=0\)이 \(x=1\)이 아닌 중근을 가져야 합니다. 판별식 \(D=0\)을 적용합니다.</p>
+                        <p class="text-center text-sm sm:text-base">
+                            \( D = (1-a)^2 - 4(1-a) = (1-a)(-a-3) = 0 \)
+                        </p>
+                        <p>• <strong class="text-gray-800">\(a\) 값 확정:</strong> \(a=1\) 또는 \(a=-3\). 이전에 구한 조건 \(a<1\)에 따라, 최종적으로 \(a=-3\) 입니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: 넓이 계산 -->
+            <div class="flex items-start print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-emerald-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm10.293 9.293a1 1 0 00-1.414 1.414L13 12.414V15a1 1 0 11-2 0v-2.586l-.293.293a1 1 0 00-1.414-1.414l2-2a1 1 0 001.414 0l2 2zM6 7a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-emerald-800">Step 4: 넓이 계산</h3>
+                    <p class="text-gray-600">확정된 함수와 직선의 교점을 구해 적분 구간을 설정하고, 정적분으로 넓이를 계산합니다.</p>
+                    <div class="mt-2 space-y-3 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+                        <p>• <strong class="text-gray-800">교점 및 적분구간:</strong> \(f(x)-l(x) = (x-1)^2(x+2)^2=0\) 이므로 교점은 \(x=-2, 1\) 입니다. 적분 구간은 \([-2, 1]\) 입니다.</p>
+                        <p>• <strong class="text-gray-800">넓이 공식:</strong></p>
+                        <p class="text-center text-sm sm:text-base">\( S = \int_{-2}^{1} (f(x)-l(x)) dx = \int_{-2}^{1} (x-1)^2(x+2)^2 dx \) </p>
+                        <p>• <strong class="text-gray-800">계산 과정:</strong></p>
+                        <p class="text-center text-sm sm:text-base">\( S = \int_{-2}^{1} (x^2+x-2)^2 dx = \int_{-2}^{1} (x^4+2x^3-3x^2-4x+4) dx \)</p>
+                        <p class="text-center text-sm sm:text-base">
+                             \( = \left[ \frac{1}{5}x^5 + \frac{1}{2}x^4 - x^3 - 2x^2 + 4x \right]_{-2}^{1} = \frac{81}{10} \)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-6 sm:p-8 mt-8">
+            <div class="text-center">
+                <p class="text-2xl sm:text-3xl font-bold">최종 정답: \( \frac{81}{10} \) (1번)</p>
+                <p class="mt-2 text-gray-300">함수의 특징과 그래프의 교점 조건을 통해 미지수를 찾고, 정적분으로 넓이를 구했습니다.</p>
+                <p class="mt-4 text-xs text-gray-400">Copyright 학습코치필 2025</p>
+            </div>
+        </footer>
+    </div>
+    <div class="text-center mt-4 text-gray-500 text-sm no-print">
+        <p>A4 인쇄에 최적화되었습니다.</p>
+    </div>
+</body>
+</html>
