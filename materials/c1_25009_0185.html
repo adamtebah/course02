@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사차함수와 정적분 종합 문제 풀이</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f0f4f8;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none;
+            }
+            .print-avoid-break {
+                page-break-inside: avoid;
+            }
+        }
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl overflow-hidden">
+        div class="p-4 border-b bg-gray-50 no-print">
+            <a href="../index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold">
+                &larr; 전체 목록으로 돌아가기
+            </a>
+        </div>
+        <header class="bg-gradient-to-r from-blue-700 to-teal-500 text-white p-6 sm:p-8">
+            <h1 class="text-2xl sm:text-3xl font-bold">🎯 사차함수와 정적분 종합 문제 풀이</h1>
+            <p class="mt-2 text-blue-100">함수의 대칭성과 정적분을 이용한 단계별 문제 해결 인포그래픽</p>
+        </header>
+
+        <div class="p-6 sm:p-8 border-b">
+            <h2 class="text-xl font-bold text-center text-gray-800 mb-4">정적분의 활용 6번 문제</h2>
+            <div class="flex justify-center mb-6 bg-gray-50 p-4 rounded-lg">
+                <img src="../images/graphic;%2025009_0185.png" 
+                     alt="사차함수와 정적분 문제 이미지" 
+                     class="w-full max-w-3xl mx-auto rounded-lg shadow-md border-2 border-gray-200">
+            </div>
+        </div>
+
+        <main class="p-6 sm:p-8">
+            <!-- Step 1: 조건 분석 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-indigo-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m-6 3v3m6-3v3m-6-3h.01M15 10h.01" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-indigo-700">Step 1: 조건 분석 및 함수 관계식 도출</h3>
+                    <p class="text-gray-600">문제의 조건들을 수학적 언어로 번역하여 문제 해결의 토대를 마련합니다.</p>
+                    <div class="mt-3 p-4 bg-indigo-50 rounded-lg border border-indigo-200 space-y-3">
+                        <p>• <strong class="text-gray-800">함수 설정:</strong> \(f(x) = 5x^4 + ax^3 + bx^2 + cx + d\) (단, \(f(0)=d<0\))</p>
+                        <p>• <strong class="text-gray-800">조건 (나) '원점 대칭':</strong> 이 조건으로부터 \(g(x) = -f(-x)\)라는 핵심 관계식을 얻습니다.</p>
+                        <p class="text-sm sm:text-base bg-white p-2 rounded">
+                           \(g(x) = - (5x^4 - ax^3 + bx^2 - cx + d) = -5x^4 + ax^3 - bx^2 + cx - d\)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: 첫 번째 단서 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-sky-500 text-white rounded-full flex items-center justify-center mr-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 7h1a2 2 0 012 2v5a2 2 0 01-2 2h-1m-6 0H7a2 2 0 01-2-2V9a2 2 0 012-2h1M7 16h10M7 8h10" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-sky-700">Step 2: 첫 번째 단서 확보</h3>
+                    <p class="text-gray-600">조건 (가)를 Step 1에서 구한 함수식에 적용하여 계수 간의 관계를 찾아냅니다.</p>
+                    <div class="mt-2 p-4 bg-sky-50 rounded-lg border border-sky-200 space-y-4">
+                        <p>• <strong class="text-gray-800">조건 (가) 적용:</strong> \(f(1)=g(1)\)을 대입하여 방정식을 세웁니다.</p>
+                        <p class="text-sm text-gray-600">\(5+a+b+c+d = -5+a-b+c-d\)</p>
+                        <p>• <strong class="text-gray-800">첫 번째 관계식:</strong> 방정식을 정리하면 홀수 차수 항의 계수 \(a, c\)가 소거되고 첫 번째 핵심 단서를 얻습니다.</p>
+                         <p class="mt-2 text-center text-lg font-mono bg-white p-2 rounded shadow-sm">\( b + d = -5 \)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: 적분 구간 확정 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-emerald-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-emerald-800">Step 3: 적분 구간 확정 - 교점 찾기</h3>
+                    <p class="text-gray-600">조건 (다)의 넓이를 계산하기 위해 두 곡선의 교점, 즉 적분 구간을 구합니다.</p>
+                    <div class="mt-2 p-4 bg-emerald-50 rounded-lg border border-emerald-200 space-y-3">
+                        <p>• <strong class="text-gray-800">교점 방정식:</strong> \(f(x)=g(x)\)를 정리하면 \(5x^4+bx^2+d=0\)을 얻습니다.</p>
+                        <p>• <strong class="text-gray-800">인수분해:</strong> Step 2의 \(b=-5-d\)를 대입하여 인수분해합니다.</p>
+                        <p class="text-center text-sm sm:text-base bg-white p-2 rounded">
+                            \( (5x^2-d)(x^2-1) = 0 \)
+                        </p>
+                        <p>• <strong class="text-gray-800">해석:</strong> \(d<0\)이므로 \(5x^2-d > 0\)입니다. 따라서 교점은 \(x^2-1=0\)에서 \(x = \pm 1\) 입니다.</p>
+                        <p class="text-center font-bold text-lg text-emerald-600">적분 구간: \([-1, 1]\)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Step 4: 넓이 계산 -->
+            <div class="flex items-start mb-8 print-avoid-break">
+                <div class="icon-box bg-amber-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-amber-700">Step 4: 넓이 계산 및 두 번째 단서 확보</h3>
+                    <p class="text-gray-600">조건 (다)와 확정된 적분 구간을 이용해 정적분을 계산하고, 두 번째 관계식을 유도합니다.</p>
+                    <div class="mt-2 p-4 bg-amber-50 rounded-lg border border-amber-200 space-y-3">
+                        <p>• <strong class="text-gray-800">넓이 공식:</strong> \( \int_{-1}^{1} |f(x)-g(x)|dx = 24 \)</p>
+                        <p>• <strong class="text-gray-800">피적분함수:</strong> \(f(x)-g(x) = 10x^4+2bx^2+2d\). 구간 \([-1,1]\)에서 부호는 음수(\(2d<0\))입니다.</p>
+                        <p>• <strong class="text-gray-800">계산 최적화 (우함수):</strong> 피적분함수가 우함수이므로 계산을 단순화합니다.</p>
+                        <p class="text-center text-sm sm:text-base bg-white p-2 rounded">
+                            \( \int_{-1}^{1} -(10x^4+2bx^2+2d)dx = -2 \int_{0}^{1} (10x^4+2bx^2+2d)dx = 24 \)
+                        </p>
+                        <p>• <strong class="text-gray-800">두 번째 관계식:</strong> 적분을 계산하면 두 번째 핵심 단서를 얻습니다.</p>
+                         <p class="mt-2 text-center text-lg font-mono bg-white p-2 rounded shadow-sm">\( \frac{b}{3} + d = -7 \)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5: 최종 결과 -->
+            <div class="flex items-start print-avoid-break">
+                <div class="icon-box flex-shrink-0 bg-rose-500 text-white rounded-full flex items-center justify-center mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-rose-800">Step 5: 최종 계산 및 결론 도출</h3>
+                    <p class="text-gray-600">두 개의 관계식을 연립하여 미지수 \(d\)를 구하고, \(g(0)\)의 값을 계산합니다.</p>
+                    <div class="mt-2 space-y-3 p-4 bg-rose-50 rounded-lg border border-rose-200">
+                        <p class="text-gray-800">
+                           두 식 \(b+d=-5\) 와 \(\frac{b}{3}+d=-7\) 을 연립하면 \(b=3, d=-8\)을 얻습니다.
+                        </p>
+                        <p class="text-gray-800">문제에서 요구하는 값은 \(g(0)\)이고, Step 1에서 \(g(0)=-d\)임을 확인했습니다.</p>
+                        <p class="text-center font-bold text-2xl text-rose-600">
+                            $$ g(0) = -d = -(-8) = 8 $$
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white p-6 sm:p-8 mt-8">
+            <div class="text-center">
+                <p class="text-2xl sm:text-3xl font-bold">최종 정답: 8 (④번)</p>
+                <p class="mt-2 text-gray-300">여러 개념을 단계적으로 적용하여 문제를 성공적으로 해결했습니다!</p>
+                <p class="mt-4 text-xs text-gray-400">Copyright 학습코치필 2025</p>
+            </div>
+        </footer>
+    </div>
+    <div class="text-center mt-4 text-gray-500 text-sm no-print">
+        <p>A4 인쇄에 최적화되었습니다.</p>
+    </div>
+</body>
+</html>
